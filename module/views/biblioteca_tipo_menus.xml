@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id="biblioteca_tipo_model_actions" model="ir.actions.act_window">
+        <field name="name">Tipos</field>
+        <field name="res_model">biblioteca.tipo</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="tipo_tree" model="ir.ui.view">
+        <field name="name">Arbol</field>
+        <field name="model">biblioteca.tipo</field>
+        <field name="arch" type="xml">
+            <tree string="Tipos" >
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="tipo_form" model="ir.ui.view">
+        <field name="name">Tipo</field>
+        <field name="model">biblioteca.tipo</field>
+        <field name="arch" type="xml">
+            <form string="Descripciones">
+                <sheet>
+                    <H1>
+                        <field name="name"/>
+                    </H1>  
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,4 @@
+id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
+libro,biblioteca.libro,model_biblioteca_libro,base.group_user,1,1,1,1
+tipo,biblioteca.tipo,model_biblioteca_tipo,base.group_user,1,1,1,1
+tags,biblioteca.tags,model_biblioteca_tags,base.group_user,1,1,1,1
