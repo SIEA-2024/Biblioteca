@@ -7,26 +7,26 @@
     </record>
 
     <record id="libro_tree" model="ir.ui.view">
-        <field name="name">Arbol</field>
+        <field name="name">biblioteca.libro.tree</field>
         <field name="model">biblioteca.libro</field>
         <field name="arch" type="xml">
             <tree string="Propiedades" >
-                <field name="name" string="Título"/>
-                <field name="type" string="Tipo"/>
-                <field name="selling_price" string="Precio"/>
+                <field name="name" string="Título"/>   
+                <field name="categoria" string="Categoría"/>
+                <field name="edadLector" string="Edad del lector"/>
             </tree>
         </field>
     </record>
 
     <record id="libro_form" model="ir.ui.view">
-        <field name="name">Descripción</field>
+        <field name="name">biblioteca.libro.form</field>
         <field name="model">biblioteca.libro</field>
         <field name="arch" type="xml">
             <form string="Descripciones">
                 <sheet>
                     <group>
                         <H1>
-                            <field name="name"/>
+                        <field name="name"/>
                         </H1>
                         <br/>
                         <group>
@@ -34,18 +34,29 @@
                         </group>
                         <br/>
                         <group>
-                            <field name="type" />
-                            <field name="published_date" string="Fecha de publicación"/>
+                            <field name="categoria" string="Categoria"/>
+                            <field name="fechaPublicacion" string="Fecha de publicación"/>
+                        </group>
+                        <group>
+                            <field name="edadLector" string="Edad de lectura"/>
+                            <field name="idioma" string="Idioma"/>
+                            <field name="numEjemplares" string="Ejemplares disponibles"/>
+                            <field name="estado" string="Estado del prestamo"/>
                         </group>
                              
                         <notebook>
                             <page string="Información">
                                 <group>
-                                    <field name="ISBN"/>
-                                    <field name="description" string="Descripción"/>
-                                    <field name="author" string="Autor"/>
-                                    <field name="selling_price" string="Precio"/>
+                                    <field name="ISBN" string="ISBN"/>
+                                    <field name="descripcion" string="Descripción"/>
+                                    <field name="autor" string="Autor"/>
+                                    <field name="numPags" string="Número de páginas"/>
+                                    <!-- <field name="precio" string="Precio"/> -->
                                 </group>
+                            </page>
+
+                            <page string="Prestamos">
+                                <field name="prestamo" />
                             </page>
                         </notebook>
                     </group>
@@ -55,11 +66,13 @@
     </record>
 
     <record id="libro_search" model="ir.ui.view">
-        <field name="name">Busqueda</field>
+        <field name="name">biblioteca.libro.search</field>
         <field name="model">biblioteca.libro</field>
         <field name="arch" type="xml">
             <search string="Test">
                 <field name="name" string="Nombre"/> 
+                <field name="edadLector" string="Edad del lector"/>
+                <field name="idioma" string="Idioma"/>
             </search>
         </field>
     </record>

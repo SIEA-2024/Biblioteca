@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id="biblioteca_categoria_model_actions" model="ir.actions.act_window">
+        <field name="name">Categoria</field>
+        <field name="res_model">biblioteca.categoria</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="categoria_tree" model="ir.ui.view">
+        <field name="name">biblioteca.categoria.tree</field>
+        <field name="model">biblioteca.categoria</field>
+        <field name="arch" type="xml">
+            <tree string="Categorias">
+                <field name="name" string="Nombre"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="categoria_form" model="ir.ui.view">
+        <field name="name">biblioteca.categoria.form</field>
+        <field name="model">biblioteca.categoria</field>
+        <field name="arch" type="xml">
+            <form string="Categorias">
+                <sheet>
+                    <H1> 
+                        <field name="name" string="Nombre"/>
+                    </H1>  
+                    <notebook>
+                        <page string="Libros">
+                            <field name="idEjemplar">
+                                <tree>
+                                    <field name="name" string="Título"/>
+                                    <!-- <field name="precio" string="Precio"/> -->
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>  
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+</odoo>

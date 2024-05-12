@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<odoo>
+    <menuitem id="biblioteca_tipo_menu_root" name="Biblioteca">
+        <menuitem id="tipo_primer_nivel_menu" name="Catálogo">
+            <menuitem id="biblioteca_libro_model_menu_action" action="biblioteca_libro_model_actions"/>
+        </menuitem>
+        <menuitem id="ajustes_primer_nivel_menu_ajustes" name="Ajustes">
+            <menuitem id="biblioteca_categoria_model_menu_action" action="biblioteca_categoria_model_actions"/>
+            <menuitem id="biblioteca_tags_model_menu_action" action="biblioteca_tags_model_actions"/>
+        </menuitem>
+        <menuitem id="registros_primer_nivel_menu_ajustes" name="Registros">
+            <menuitem id="biblioteca_prestamo_model_menu_action" action="biblioteca_prestamo_model_actions"/>
+            <menuitem id="biblioteca_miembro_model_menu_action" action="biblioteca_miembro_model_actions"/>
+        </menuitem>
+    </menuitem>
+</odoo>

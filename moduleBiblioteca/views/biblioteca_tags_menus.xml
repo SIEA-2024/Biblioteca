@@ -7,23 +7,23 @@
     </record>
 
     <record id="tipo_tree" model="ir.ui.view">
-        <field name="name">Arbol</field>
+        <field name="name">biblioteca.tags.tree</field>
         <field name="model">biblioteca.tags</field>
         <field name="arch" type="xml">
-            <tree string="Tags" >
-                <field name="name"/>
+            <tree string="Tags" editable="top">
+                <field name="name" string="Nombre"/>
             </tree>
         </field>
     </record>
 
     <record id="tipo_form" model="ir.ui.view">
-        <field name="name">Tags</field>
+        <field name="name">biblioteca.tags.form</field>
         <field name="model">biblioteca.tags</field>
         <field name="arch" type="xml">
             <form string="Descripciones">
                 <sheet>
                     <group>
-                        <field name="name"/>
+                        <field name="name" string="Nombre"/>
                     </group>  
                 </sheet>
             </form>

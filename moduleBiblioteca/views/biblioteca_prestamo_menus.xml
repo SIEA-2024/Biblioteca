@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id="biblioteca_prestamo_model_actions" model="ir.actions.act_window">
+        <field name="name">Prestamos</field>
+        <field name="res_model">biblioteca.prestamo</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="prestamo_tree" model="ir.ui.view">
+        <field name="name">biblioteca.prestamo.tree</field>
+        <field name="model">biblioteca.prestamo</field>
+        <field name="arch" type="xml">
+            <tree string="Propiedades editables" editable="top">
+                <field name="idEjemplar" string="Título"/>
+                <field name="idMiembro" string="Miembro"/>
+                <field name="diasEnPrestamo" string="Días en prestamo"/>
+                <field name="diasExtraReserva" string="Días extra" invisible="estado in ['prestado', 'reservado', 'devuelto']"/>
+                <field name="fechaInicio" string="Inicio"/>   
+                <field name="fechaFin" string="Fin"/>
+                <field name="fechaDevolucion" string="Devolución"/>
+                <field name="estado" string="Estado del prestamo"/>
+                <button name="actionPrestamo" type="object" string="Prestado"/>
+                <button name="actionDevolucion" type="object" string="Devuelto"/>
+                <button name="actionRenovacion" type="object" string="Renovado"/>
+                <button name="actionReservacion" type="object" string="Reservado"/>
+            </tree>
+        </field>
+    </record>
+
+</odoo>
