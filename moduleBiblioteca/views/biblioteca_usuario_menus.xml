@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data>
+
+    <record id="res_users_view_form" model="ir.ui.view">
+        <field name="name">res.users.view.form.inherit.estate</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="base.view_users_form"/>
+        <field name="arch" type="xml">
+            <group>
+                <group>
+                    <field name="dni" string="DNI"/>
+                    <field name="edad" string="Edad"/>
+                    <field name="telefono" widget="phone" string="Teléfono"/>
+                </group>
+                <group>
+                    <field name="tarjeta" string="Carné préstamo"/> 
+                </group>
+            </group>
+            <notebook>
+                <page string="Prestamos" name="prestamos">
+                    <field name="prestamo" />
+                </page>
+            </notebook>
+        </field>
+    </record>
+
+</data>
+</odoo>

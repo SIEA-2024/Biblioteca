@@ -3,16 +3,17 @@
     <record id="biblioteca_libro_model_actions" model="ir.actions.act_window">
         <field name="name">Libros</field>
         <field name="res_model">biblioteca.libro</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">tree,form,kanban</field>
     </record>
 
     <record id="libro_tree" model="ir.ui.view">
         <field name="name">biblioteca.libro.tree</field>
         <field name="model">biblioteca.libro</field>
         <field name="arch" type="xml">
-            <tree string="Propiedades" >
+            <tree string="Ejemplares" >
                 <field name="name" string="Título"/>   
                 <field name="categoria" string="Categoría"/>
+                <field name="idioma" string="Idioma" widget="many2many_tags" options="{'color_field':'color'}"/>
                 <field name="edadLector" string="Edad del lector"/>
             </tree>
         </field>
@@ -30,16 +31,17 @@
                         </H1>
                         <br/>
                         <group>
-                            <field name="tags" widget="many2many_tags"/>
+                            <field name="tags" widget="many2many_tags" options="{'color_field':'color'}"/>
                         </group>
                         <br/>
                         <group>
                             <field name="categoria" string="Categoria"/>
-                            <field name="fechaPublicacion" string="Fecha de publicación"/>
+                            <field name="saga" string="Saga"/>
+                            <field name="edadLector" string="Edad de lectura"/>
+                            <field name="idioma" string="Idioma" widget="many2many_tags" options="{'color_field':'color'}"/>
                         </group>
                         <group>
-                            <field name="edadLector" string="Edad de lectura"/>
-                            <field name="idioma" string="Idioma"/>
+                            <field name="fechaAdquisicion" string="Fecha de adquisición"/>
                             <field name="numEjemplares" string="Ejemplares disponibles"/>
                             <field name="estado" string="Estado del prestamo"/>
                         </group>
@@ -47,11 +49,12 @@
                         <notebook>
                             <page string="Información">
                                 <group>
-                                    <field name="ISBN" string="ISBN"/>
+                                    <field name="isbn" string="ISBN"/>
                                     <field name="descripcion" string="Descripción"/>
                                     <field name="autor" string="Autor"/>
+                                    <field name="editorial" string="Editorial"/>
                                     <field name="numPags" string="Número de páginas"/>
-                                    <!-- <field name="precio" string="Precio"/> -->
+                                    <field name="fechaPublicacion" string="Fecha de publicación"/>
                                 </group>
                             </page>
 
@@ -70,10 +73,56 @@
         <field name="model">biblioteca.libro</field>
         <field name="arch" type="xml">
             <search string="Test">
-                <field name="name" string="Nombre"/> 
+                <field name="name" string="Titulo"/> 
                 <field name="edadLector" string="Edad del lector"/>
                 <field name="idioma" string="Idioma"/>
+                <field name="estado" string="Estado"/>
+
+                <group expand="1" string="Group By">
+                    <filter string="Saga" name="saga" context="{'group_by':'saga', 'residual_visible':True}"/>
+                </group>
             </search>
+        </field>
+    </record>
+
+    <record id="libro_kanban" model="ir.ui.view">
+        <field name="name">biblioteca.libro.kanban</field>
+        <field name="model">biblioteca.libro</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="state" groups_draggable="False" columns_draggable="False">
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click">
+                            <div class="oe_kanban_details">
+                                <ul>
+                                    <li class="mb4">
+                                        <strong><field name="name"/></strong>
+                                    </li>
+                                    <li class="badge badge-pill float-right mb4">
+                                        <field name="isbn" />
+                                    </li>
+                                    <li class="badge badge-pill float-right mb4">
+                                        <field name="idioma"/>
+                                    </li>
+                                    <li class="badge badge-pill float-right mb4" >
+                                        <div t-if="record.saga.raw_value != 'Ninguna'">
+                                            <field name="saga" />
+                                        </div>
+                                    </li>
+                                     <li class="badge badge-pill float-right mb4" >
+                                        <div t-if="record.autor.raw_value != 'Anonimo'">
+                                            <field name="autor" />
+                                        </div>
+                                    </li>
+                                    <li class="badge badge-pill float-right mb4" >
+                                        <field name="prestamo" />
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
         </field>
     </record>
 </odoo>

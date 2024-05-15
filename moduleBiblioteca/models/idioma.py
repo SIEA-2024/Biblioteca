@@ -1,9 +1,9 @@
 from odoo import fields
 from odoo.models import Model
 
-class Tags(Model):
-    _name = "biblioteca.tags" 
-    _description = "Tags de los libros"
+class Idioma(Model):
+    _name = "biblioteca.idioma" 
+    _description = "Idioma del libro"
     _order="secuencia,name"
     
     name = fields.Char(required=True)
@@ -11,5 +11,5 @@ class Tags(Model):
     secuencia = fields.Integer()
 
     _sql_constraints = [
-        ("unique_nombre", "UNIQUE (name)", "El nombre de la etiqueta debe ser único.")
+        ("unique_nombre", "UNIQUE (name)", "El idioma de la categoría debe ser única.")
     ]

@@ -12,6 +12,7 @@
         <field name="arch" type="xml">
             <tree string="Categorias">
                 <field name="name" string="Nombre"/>
+                <field name="secuencia" widget="handle"/>
             </tree>
         </field>
     </record>
@@ -30,7 +31,6 @@
                             <field name="idEjemplar">
                                 <tree>
                                     <field name="name" string="Título"/>
-                                    <!-- <field name="precio" string="Precio"/> -->
                                 </tree>
                             </field>
                         </page>

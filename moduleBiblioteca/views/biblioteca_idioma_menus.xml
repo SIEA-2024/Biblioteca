@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id="biblioteca_idioma_model_actions" model="ir.actions.act_window">
+        <field name="name">Idioma</field>
+        <field name="res_model">biblioteca.idioma</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="idioma_tree" model="ir.ui.view">
+        <field name="name">biblioteca.idioma.tree</field>
+        <field name="model">biblioteca.idioma</field>
+        <field name="arch" type="xml">
+            <tree string="Idioma" editable="top">
+                <field name="name" string="Nombre"/>
+                <field name="secuencia" widget="handle"/>
+            </tree>
+        </field>
+    </record>
+</odoo>

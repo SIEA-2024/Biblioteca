@@ -10,21 +10,33 @@
         <field name="name">biblioteca.prestamo.tree</field>
         <field name="model">biblioteca.prestamo</field>
         <field name="arch" type="xml">
-            <tree string="Propiedades editables" editable="top">
+            <tree string="Propiedades editables" editable="top" decoration-success="estado in ['prestado','renovado']" 
+                                                                decoration-warning="estado == 'reservado'"
+                                                                decoration-info="estado == 'devuelto'">
                 <field name="idEjemplar" string="Título"/>
-                <field name="idMiembro" string="Miembro"/>
+                <field name="idUsuario" string="Miembro"/>
                 <field name="diasEnPrestamo" string="Días en prestamo"/>
                 <field name="diasExtraReserva" string="Días extra" invisible="estado in ['prestado', 'reservado', 'devuelto']"/>
                 <field name="fechaInicio" string="Inicio"/>   
                 <field name="fechaFin" string="Fin"/>
                 <field name="fechaDevolucion" string="Devolución"/>
-                <field name="estado" string="Estado del prestamo"/>
+                <field name="estado" string="Estado del prestamo" widget="selection" placeholder="Selecciona una opción"/>
                 <button name="actionPrestamo" type="object" string="Prestado"/>
                 <button name="actionDevolucion" type="object" string="Devuelto"/>
                 <button name="actionRenovacion" type="object" string="Renovado"/>
-                <button name="actionReservacion" type="object" string="Reservado"/>
             </tree>
         </field>
     </record>
 
+    <record id="prestamo_search" model="ir.ui.view">
+        <field name="name">biblioteca.prestamo.search</field>
+        <field name="model">biblioteca.prestamo</field>
+        <field name="arch" type="xml">
+            <search string="Test">
+                <group expand="1" string="Group By">
+                    <filter string="Estado" name="estado" context="{'group_by':'estado', 'residual_visible':True}"/>
+                </group>
+            </search>
+        </field>
+    </record>
 </odoo>

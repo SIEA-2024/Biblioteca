@@ -3,4 +3,4 @@ libro,biblioteca.libro,model_biblioteca_libro,base.group_user,1,1,1,1
 categoria,biblioteca.categoria,model_biblioteca_categoria,base.group_user,1,1,1,1
 tags,biblioteca.tags,model_biblioteca_tags,base.group_user,1,1,1,1
 prestamo,biblioteca.prestamo,model_biblioteca_prestamo,base.group_user,1,1,1,1
-miembro,biblioteca.miembro,model_biblioteca_miembro,base.group_user,1,1,1,1
+idioma,biblioteca.idioma,model_biblioteca_idioma,base.group_user,1,1,1,1
