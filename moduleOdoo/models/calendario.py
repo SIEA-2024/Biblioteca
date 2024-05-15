@@ -11,6 +11,7 @@ class Calendario(Model):
                       "allday": True,
                       "show_as": "busy",
                       "privacy":"private",
+                      "user_id":record.idUsuario.id
                       }
             self.env["calendar.event"].create(values)
         return super().actionPrestamo()
