@@ -5,8 +5,8 @@ class Calendario(Model):
     
     def actionPrestamo(self):
         for record in self:
-            values = {"name":record.idEjemplar.name,
-                      "start_date":record.fechaInicio,
+            values = {"name":"Devolución del libro: "+record.idEjemplar.name,
+                      "start_date":record.fechaFin,
                       "stop_date": record.fechaFin,
                       "allday": True,
                       "show_as": "busy",
@@ -15,3 +15,4 @@ class Calendario(Model):
                       }
             self.env["calendar.event"].create(values)
         return super().actionPrestamo()
+
